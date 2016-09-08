@@ -42,7 +42,82 @@ class form extends Component {
         })
 
         return (
-            <div></div>
+            <div className="player-form">
+                <div className="container">
+                    <form 
+                        className="form-horizontal"
+                        onSubmit={this.addPlayer.bind(this)}>
+                            <h2>Insert the Player</h2>
+                            <hr />
+
+                            <div className="form-group">
+                                <label className="col-sm-2 control-label">First Name</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        required
+                                        className="form-control"
+                                        ref='name'
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label className="col-sm-2 control-label">Last Name</label>
+                                <div className="form-group">
+                                    <input
+                                        required
+                                        className="form-control"
+                                        ref="surname"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label className="col-sm-2 control-label">Know name</label>
+                                <div className="col-sm-10">
+                                    <input
+                                        required
+                                        className="form-control"
+                                        ref="knowname"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label className="col-sm-2 control-label">Shirt Number</label>
+                                <div className="col-sm-10">
+                                    <select
+                                        required
+                                        className="form-control"
+                                        ref="shirtNumb"
+                                        name="shirtNumber">
+                                        <option defaultValue=''>Please Select the Shirt Number</option>
+                                        {playerNumber}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label className="col-sm-2 control-label">Role</label>
+                                <div className="col-sm-10">
+                                    <select
+                                        required
+                                        className="form-control"
+                                        ref="role"
+                                        name="role">
+                                        <option defaultValue=''>Please Select a Role</option>
+                                        {playerRole}
+                                    </select>
+                                </div>
+                            </div>
+                            <input className="btn btn-succes" type="submit" value="Insert The Player" />
+                        </form>
+                </div>
+            </div>
         )
     }
+    
 }
