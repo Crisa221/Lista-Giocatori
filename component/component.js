@@ -20,11 +20,28 @@ class table extends Component {
                         <td>{initState.players[id].knowname}</td>
                         <td>{initState.players[id].shirtNumb}</td>
                         <td>{initState.players[id].role}</td>
+                        <td>
+                            <button
+                                type="button"
+                                className="btn btn-info btn-xs"
+                                onClick={this.editPlayer.bind(this, player.id)}
+                            >
+                            Edit
+                            </button>
+                            <button
+                                type="button"
+                                className="btn btn-danger btn-xs"
+                                onClick={this.deletePlayer.bind(this, player.id)}>
+                                Delete
+                            </button>
+                        </td>
                     </tbody>
                 </Table>
-
             )
         })
+        return (
+            <div></div>
+        )
     }
 }
 
@@ -133,6 +150,11 @@ class form extends Component {
             type: 'ADD_PLAYER',
             newPlayer
         })
+        this.refs.name.value = '',
+        this.refs.surname.value = '',
+        this.refs.knowname.value = '',
+        this.refs.shirtNumb.value = 'Please Select the Shirt Number',
+        this.refs.role.value = 'Please Select a Role'
     }
 
 }
