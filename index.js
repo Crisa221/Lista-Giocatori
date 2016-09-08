@@ -5,7 +5,7 @@ import { createStore } from 'redux'
 import { reduPlayer, initState } from './reducer'
 // import App from '/component'
 
-let store = createStore(reduPlayer, initState)
+let store = createStore(reduPlayer, initState);
 
 render(
     <Provider store={store}>
