@@ -7,8 +7,14 @@ module.exports = {
   devtool: debug ? "inline-sourcemap" : null,
   entry: "./index.js",
   output: {
-    path: __dirname + "/js",
-    filename: "scripts.min.js"
+    path: path.join(__dirname, "build", "js") ,
+    filename: "bundle.js"
+  },
+
+  module: {
+      loaders: [
+          { test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" }
+      ]
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
