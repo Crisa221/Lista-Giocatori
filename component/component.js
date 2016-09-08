@@ -6,42 +6,57 @@ class table extends Component {
     render() {
         let player = Object.keys(initState.players).map((id) => {
             return (
-                 <Table>
-                    <thead>
-                        <th>Name</th>
-                        <th>Surname</th>
-                        <th>Knowname</th>
-                        <th>Shirt Number</th>
-                        <th>Role</th>
-                    </thead>
-                    <tbody>
-                        <td>{initState.players[id].name}</td>
-                        <td>{initState.players[id].surname}</td>
-                        <td>{initState.players[id].knowname}</td>
-                        <td>{initState.players[id].shirtNumb}</td>
-                        <td>{initState.players[id].role}</td>
-                        <td>
-                            <button
-                                type="button"
-                                className="btn btn-info btn-xs"
-                                onClick={this.editPlayer.bind(this, player.id)}
+                <tr key={key}>
+                    <td>{initState.players[id].name}</td>
+                    <td>{initState.players[id].surname}</td>
+                    <td>{initState.players[id].knowname}</td>
+                    <td>{initState.players[id].shirtNumb}</td>
+                    <td>{initState.players[id].role}</td>
+                    <td>
+                        <button
+                            type="button"
+                            className="btn btn-info btn-xs"
+                            onClick={this.editPlayer.bind(this, player.id)}
                             >
                             Edit
-                            </button>
-                            <button
-                                type="button"
-                                className="btn btn-danger btn-xs"
-                                onClick={this.deletePlayer.bind(this, player.id)}>
-                                Delete
-                            </button>
-                        </td>
-                    </tbody>
-                </Table>
+                        </button>
+                        <button
+                            type="button"
+                            className="btn btn-danger btn-xs"
+                            onClick={this.deletePlayer.bind(this, player.id)}>
+                            Delete
+                        </button>
+                    </td>
+                </tr>
             )
         })
         return (
-            <div></div>
+            <div className="player-list">
+                <div className="container">
+                    <h2>Player List</h2>
+                         <Table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Surname</th>
+                                    <th>Knowname</th>
+                                    <th>Shirt Number</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {players}
+                            </tbody>
+                        </Table>
+                </div>
+            </div>
         )
+    }
+    deletePlayer(id) {
+        store.dispatch({
+            type: 'REMOVE_PLAYER',
+            id
+        })
     }
 }
 
