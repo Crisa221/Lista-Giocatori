@@ -1,6 +1,6 @@
 import react, { PropTypes } from 'react'
 import { Button, Form, Table } from 'react-bootstrap'
-import { initState } from './reducer'
+import Reducer from './reducer'
 
 class table extends Component {
     render() {
@@ -46,7 +46,7 @@ class form extends Component {
                 <div className="container">
                     <form 
                         className="form-horizontal"
-                        onSubmit={this.addPlayer.bind(this)}>
+                        onSubmit={this.addingPlayer.bind(this)}>
                             <h2>Insert the Player</h2>
                             <hr />
 
@@ -119,5 +119,20 @@ class form extends Component {
             </div>
         )
     }
-    
+    addingPlayer(e) {
+        e.preventDefault()
+        let newPlayer = {
+            id: this.props.data.players.lenght + 1,
+            name: this.refs.name.value,
+            surname: this.refs.surname.value,
+            knowname: this.refs.knowname.value,
+            shirtNumb: this.refs.shirtNumb.value,
+            role: this.refs.role.value
+        }
+        store.dispatch({
+            type: 'ADD_PLAYER',
+            newPlayer
+        })
+    }
+
 }
