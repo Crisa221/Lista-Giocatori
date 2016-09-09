@@ -14,11 +14,14 @@ module.exports = {
 
   module: {
       loaders: [
-          { test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" }
-      ],
-      query: {
-        presets: ['es2015', 'react']
-      }
+          { 
+            test: /\.jsx$/, 
+            loader: "babel-loader",
+            query: {
+              presets: ['es2015', 'react']
+            } 
+          },
+      ]
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
@@ -26,3 +29,21 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ],
 };
+
+
+
+
+/* 
+
+
+loaders: [
+  {
+    test: /\.js$,
+    loader: 'babel-loader',
+    query: {
+      presets: ['es2015', 'react']
+    }
+  }
+]
+
+*/
