@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_PLAYER, REMOVE_PLAYER, EDIT_PLAYER } from './action'
+import Action from './action'
 
 
 let initState = {
