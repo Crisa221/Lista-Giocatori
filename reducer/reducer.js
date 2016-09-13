@@ -2,8 +2,6 @@ import { combineReducers } from 'redux'
 import { List, fromJS } from 'immutable'
 import Action from '../action/action.js'
 
-
-
 let initState = {
     players: fromJS([
         {
@@ -56,7 +54,7 @@ if (localStorage) {
 
 
 
-const reduPlayer = combineReducers({
+const reducer = combineReducers({
     players: (state = List(), action) => {
         switch (action.type) {
             case 'ADD_PLAYER':
@@ -75,4 +73,4 @@ const reduPlayer = combineReducers({
 });
 
 
-export default (reduPlayer, initState)
+export default (reducer, initState)
