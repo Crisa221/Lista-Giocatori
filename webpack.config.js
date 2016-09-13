@@ -5,7 +5,7 @@ module.exports = {
   context: __dirname,
   devtool: "sourcemap",
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:8081',
     'webpack/hot/only-dev-server',
     './index.js'
   ],
@@ -25,7 +25,11 @@ module.exports = {
             }
           },
       ]
-  }
+  },
+  plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+    ]
 };
 
 
