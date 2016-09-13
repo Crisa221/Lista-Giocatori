@@ -1,4 +1,4 @@
-import react, { PropTypes } from 'react'
+import react, { PropTypes, Component } from 'react'
 import { Button, Form, Table } from 'react-bootstrap'
 import Reducer from '../reducer/reducer.js'
 
