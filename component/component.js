@@ -52,13 +52,13 @@ class table extends Component {
             </div>
         )
     }
-  /*  deletePlayer(id) {
+    deletePlayer(id) {
         store.dispatch({
             type: 'REMOVE_PLAYER',
             id
         })
     };
-    editPlayer(text) {
+    /* editPlayer(text) {
       store.dispatch({
         type: 'EDIT_PLAYER',
         text
