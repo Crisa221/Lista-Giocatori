@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
+import { List, fromJS } from 'Immutable'
 import Action from './action'
+
 
 
 let initState = {
@@ -11,7 +13,7 @@ let initState = {
             knowname: "TheNicolaus",
             shirtNumb: 22,
             role: "Striker"
-           
+
         },
 
         {
@@ -21,7 +23,7 @@ let initState = {
             knowname: "Grinch",
             shirtNumb: 5,
             role: "Defender"
-            
+
         },
         {
             id: 3,
@@ -30,7 +32,7 @@ let initState = {
             knowname: "LOL",
             shirtNumb: 9,
             role: "Midfielder"
-            
+
 
         }
     ]),
@@ -73,4 +75,4 @@ const reduPlayer = combineReducers({
 });
 
 
-export default (reduPlayer, initState) 
+export default (reduPlayer, initState)
