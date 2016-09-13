@@ -1,6 +1,6 @@
 import react, { PropTypes } from 'react'
 import { Button, Form, Table } from 'react-bootstrap'
-import Reducer from './reducer'
+import Reducer from '../reducer/reducer.js'
 
 class table extends Component {
     render() {
@@ -156,28 +156,8 @@ class form extends Component {
                 </div>
             </div>
         )
-    }
-    /* addingPlayer(e) {
-        e.preventDefault()
-        let newPlayer = {
-            id: this.props.data.players.lenght + 1,
-            name: this.refs.name.value,
-            surname: this.refs.surname.value,
-            knowname: this.refs.knowname.value,
-            shirtNumb: this.refs.shirtNumb.value,
-            role: this.refs.role.value
-        }
-        store.dispatch({
-            type: 'ADD_PLAYER',
-            newPlayer
-        })
-        this.refs.name.value = '',
-        this.refs.surname.value = '',
-        this.refs.knowname.value = '',
-        this.refs.shirtNumb.value = 'Please Select the Shirt Number',
-        this.refs.role.value = 'Please Select a Role'
-    } */
-    let newPlayer = Object.assign({}, values, {
+    };
+    /*let newPlayer = Object.assign({}, values, {
       id,
       name: values.name.filter(n => n),
       surname: values.surname.filter(s => s),
@@ -185,5 +165,7 @@ class form extends Component {
       shirtNumb: values.shirtNumb.filter(h => h),
       role: values.role.filter(r => r)
     });
-    dispatch(action.addPlayer(newPlayer));
+    dispatch(action.addPlayer(newPlayer))*/
 }
+
+export default App (form, table)
