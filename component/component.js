@@ -52,12 +52,18 @@ class table extends Component {
             </div>
         )
     }
-    deletePlayer(id) {
+  /*  deletePlayer(id) {
         store.dispatch({
             type: 'REMOVE_PLAYER',
             id
         })
-    }
+    };
+    editPlayer(text) {
+      store.dispatch({
+        type: 'EDIT_PLAYER',
+        text
+      })
+    } */
 }
 
 class form extends Component {
@@ -76,7 +82,7 @@ class form extends Component {
         return (
             <div className="player-form">
                 <div className="container">
-                    <form 
+                    <form
                         className="form-horizontal"
                         onSubmit={this.addingPlayer.bind(this)}>
                             <h2>Insert the Player</h2>
@@ -151,7 +157,7 @@ class form extends Component {
             </div>
         )
     }
-    addingPlayer(e) {
+    /* addingPlayer(e) {
         e.preventDefault()
         let newPlayer = {
             id: this.props.data.players.lenght + 1,
@@ -170,6 +176,14 @@ class form extends Component {
         this.refs.knowname.value = '',
         this.refs.shirtNumb.value = 'Please Select the Shirt Number',
         this.refs.role.value = 'Please Select a Role'
-    }
-
+    } */
+    let newPlayer = Object.assign({}, values, {
+      id,
+      name: values.name.filter(n => n),
+      surname: values.surname.filter(s => s),
+      knowname: values.knowname.filter(k => k),
+      shirtNumb: values.shirtNumb.filter(h => h),
+      role: values.role.filter(r => r)
+    });
+    dispatch(action.addPlayer(newPlayer));
 }
