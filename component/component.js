@@ -166,6 +166,22 @@ class form extends Component {
       role: values.role.filter(r => r)
     });
     dispatch(action.addPlayer(newPlayer))*/
+
+    addPlayer(e) {
+    e.preventDefault()
+    let newPlayer = {
+      id: this.props.data.players.length + 1,
+      name: this.refs.name.value,
+      surname: this.refs.surname.value,
+      knowname: this.refs.knowname.value,
+      shirtNumb: this.refs.shirtNumb.value,
+      role: this.refs.role.value
+    }
+    store.dispatch({
+      type: 'ADD_PLAYER',
+      newPlayer
+    })
+  }
 }
 
 export default App (form, table)
