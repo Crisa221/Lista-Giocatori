@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { List, fromJS } from 'Immutable'
-import Action from './action'
+import { List, fromJS } from 'immutable'
+import Action from '../action/action.js'
 
 
 
