@@ -184,4 +184,4 @@ class form extends Component {
   }
 }
 
-export default App (form, table)
+export default (form, table)
