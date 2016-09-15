@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { List, fromJS } from 'immutable'
 import Action from '../action/action.js'
 
-let initState = {
+let initialState = {
     players: fromJS([
         {
             id: 1,
@@ -54,7 +54,29 @@ if (localStorage) {
 
 
 
-const reducer = combineReducers({
+function reducer (state = initialState, action) {
+  switch (action.type) {
+    case 'ADD_PLAYER':
+        return state.push(fromJS(action.player));
+    case 'REMOVE_PLAYER':
+        return state.filter(player => player.get('id') !== action.id);
+    case 'EDTI_PLAYER':
+        return state.set(
+            state.findIndex(player => player.get('id') === action.players.id),
+            fromJS(action.player)
+        );
+    default:
+        return state;
+  }
+};
+
+const rootReducer = combineReducers({
+  initialState,
+  reducer
+});
+
+
+/*const reducer = combineReducers({
     players: (state = List(), action) => {
         switch (action.type) {
             case 'ADD_PLAYER':
@@ -70,7 +92,7 @@ const reducer = combineReducers({
                 return state;
         }
     }
-});
+});*/
 
 
-export default (reducer, initState)
+export default rootReducer;
